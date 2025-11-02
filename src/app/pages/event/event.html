@@ -1,0 +1,13 @@
+<div class="flex h-screen gap-16">
+    <section class="w-3/5 bg-amber-700">
+        <div *ngIf="eventData$ | async as eventData">
+            {{ eventData.eventName }}
+        </div>
+        
+    </section>
+
+    <!-- organizers Div -->
+    <div class="bg-amber-950 h-screen w-2/5">
+        hellooooo
+    </div>
+</div>

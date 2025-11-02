@@ -54,16 +54,21 @@
         },
         "serve": {
           "builder": "@angular/build:dev-server",
+          "options": {
+            "buildTarget": "EVENT_BOOKING:build:development",
+            "proxyConfig": "proxy.conf.json"
+          },
           "configurations": {
-            "production": {
-              "buildTarget": "EVENT_BOOKING:build:production"
-            },
             "development": {
               "buildTarget": "EVENT_BOOKING:build:development"
+            },
+            "production": {
+              "buildTarget": "EVENT_BOOKING:build:production"
             }
           },
           "defaultConfiguration": "development"
-        },
+        }
+        ,
         "extract-i18n": {
           "builder": "@angular/build:extract-i18n"
         },

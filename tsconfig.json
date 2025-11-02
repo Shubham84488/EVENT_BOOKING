@@ -16,6 +16,8 @@
     "module": "preserve"
   },
   "angularCompilerOptions": {
+    "enableTemplateStatements": true,
+    "enableControlFlow": true,
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
