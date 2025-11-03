@@ -1,8 +1,75 @@
-<div class="flex justify-center items-center h-16 gap-5 bg-pink-500 text-white text-2xl font-bold">
+<div class="flex justify-between items-center h-16 gap-5 bg-pink-500 text-white text-2xl font-bold px-4">
+  <div class="flex gap-5 mx-auto"> <!-- Middle items container centered -->
     <a routerLink="/home" routerLinkActive="underline">Home</a>
     <a routerLink="/event" routerLinkActive="underline">Events</a>
     <a routerLink="/my-bookings" routerLinkActive="underline">My Bookings</a>
   </div>
-  
-  <router-outlet></router-outlet>
+  <button class="mr-10 hover:scale-105 cursor-pointer text-white" (click)="login()">Login</button>
+</div>
+
+<div class="relative w-full flex justify-end z-50">
+  <div class="absolute top-2 right-5 rounded-2xl h-screen w-[26%] bg-white shadow-lg">
+    <form [formGroup]="loginForm" (ngSubmit)="onLoginSubmit()" class="max-w-sm mx-auto p-6 bg-white rounded shadow-md">
+      <h2 class="text-2xl font-bold mb-6">Login</h2>
+    
+      <label class="block mb-4">
+        Contact No
+        <input type="text" formControlName="ContactNo" class="w-full border border-gray-300 p-2 rounded" />
+      </label>
+    
+      <label class="block mb-6">
+        Password
+        <input type="password" formControlName="Password" class="w-full border border-gray-300 p-2 rounded" />
+      </label>
+    
+      <button type="submit" [disabled]="!loginForm.valid" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+        Login
+      </button>
+    </form>    
+  </div>
+  <div class="absolute top-2 right-5 rounded-2xl h-screen w-[26%] bg-white shadow-lg">
+    <form [formGroup]="registerForm" (ngSubmit)="onRegister()" class="max-w-md mx-auto p-6 bg-white rounded shadow-md">
+      <h2 class="text-2xl font-bold mb-4 text-pink-500">Register</h2>
+    
+      <label class="block mb-2">
+        Name
+        <input type="text" formControlName="Name" class="w-full border border-gray-300 p-2 rounded" />
+      </label>
+    
+      <label class="block mb-2">
+        Email
+        <input type="email" formControlName="Email" class="w-full border border-gray-300 p-2 rounded" />
+      </label>
+    
+      <label class="block mb-2">
+        Password
+        <input type="password" formControlName="Password" class="w-full border border-gray-300 p-2 rounded" />
+      </label>
+    
+      <label class="block mb-2">
+        Contact No
+        <input type="text" formControlName="ContactNo" class="w-full border border-gray-300 p-2 rounded" />
+      </label>
+    
+      <label class="block mb-4">
+        Role
+        <select formControlName="Role" class="w-full border border-gray-300 p-2 rounded">
+          <option value="" disabled selected>Select Role</option>
+          <option value="Customer">Customer</option>
+          <option value="Event Planner">Event Planner</option>
+        </select>
+      </label>      
+    
+      <div class="flex justify-around">
+        <button type="submit" [disabled]="!registerForm.valid" class="bg-blue-600 text-white px-4 py-2 rounded hover:scale-105 cursor-pointer">
+          Register
+        </button>
+        <button class="cursor-pointer hover:text-blue-500 hover:scale-105 text-center  p-3">already a user? Login</button>
+      </div>
+    </form>    
+  </div>
+</div>
+
+
+<router-outlet></router-outlet>
   
